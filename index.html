@@ -37,16 +37,26 @@
     </div>
     <div class="desde">Desde 13 de junho de 2018</div>
   </div>  
-  
 
   <div class="musica">
     <p><strong>🎵 Imagina Samba - Você não tem noção</strong></p>
-    <audio controls autoplay loop>
+    <audio id="musica" controls autoplay loop muted>
       <source src="./musica/imaginasamba_l_voce_nao_tem_nocao_audio_oficial_mp3_85635.mp3" type="audio/mpeg" />
       Seu navegador não suporta áudio.
     </audio>
   </div>
 
   <script src="script.js"></script>
+
+  <!-- Script para ativar a música automaticamente -->
+  <script>
+    window.addEventListener('load', function () {
+      const musica = document.getElementById('musica');
+      musica.muted = false;
+      musica.play().catch((error) => {
+        console.log('Autoplay bloqueado pelo navegador:', error);
+      });
+    });
+  </script>
 </body>
 </html>
